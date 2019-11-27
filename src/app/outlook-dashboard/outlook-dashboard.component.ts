@@ -25,7 +25,7 @@ export class OutlookDashboardComponent implements OnInit {
     .then((events:Event[]) => {
       this.events = events
       .filter(e=>e.attendees.some(a=>a.emailAddress.address==this.meetingRoomEmail))
-      .filter(e=>e.attendees.every(a=>a.status.response!=STATUS_DECLINED));
+      .filter(e=>e.attendees.find(a=>a.emailAddress.address==this.meetingRoomEmail).status.response!=STATUS_DECLINED);
     })
     .catch(err=>console.log(err.message));
   }
