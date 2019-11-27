@@ -1,0 +1,33 @@
+<div class="row" style="text-align: center;">
+        <img src="/assets/img/thumblogo.png" height="75px" style="margin-bottom: -26px;"><span style="color: black;font-size: 34px;
+        font-weight: 700;margin-top: 16px;">ThumbStack</span>
+</div>
+
+<div class="row" style="padding: 44px; text-align: center;">
+    <form #form="ngForm">
+        <div>
+            <h3>Enter Room Code </h3>
+        </div>
+
+        <div>
+            <input class="form-control" type="text" name="roomCode" [(ngModel)]="roomCode" #category="ngModel"
+                placeholder="Enter room Code" required>
+
+
+        </div>
+
+        <div>
+            <button style="margin: 27px;"   class="btn btn-info" type="submit" [disabled]="form.invalid"
+                (click)="submit()">Submit</button>
+
+
+        </div>
+
+
+
+
+
+
+    </form>
+
+</div>
