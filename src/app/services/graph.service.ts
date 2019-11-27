@@ -32,9 +32,8 @@ export class GraphService {
     });
   }
 
-  async getEvents(startDate:string, endDate:string): Promise<Event[]> {    
-    console.log(startDate);
-    console.log(endDate);
+  async getEvents(startDate:string, endDate:string): Promise<Event[] | any> {  
+  
     try {
       let result =  await this.graphClient
         .api(`/me/events?startdatetime=${startDate}&enddatetime=${endDate}`)
@@ -44,7 +43,10 @@ export class GraphService {
 
       return result.value;
     } catch (error) {
-       alert('Could not get events'+ JSON.stringify(error, null, 2));
+       return {
+        message:"Could not get events",
+        error:error
+       };
     }
   }
 }

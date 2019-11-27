@@ -56,7 +56,7 @@ export class AuthService {
   async signIn(): Promise<void> {
     let result = await this.msalService.loginPopup(OAuthSettings.scopes)
       .catch((reason) => {
-        alert('Login failed'+ JSON.stringify(reason, null, 2));
+        console.log('Login failed'+ JSON.stringify(reason, null, 2));
       });
 
     if (result) {
@@ -76,7 +76,7 @@ export class AuthService {
   async getAccessToken(): Promise<string> {
     let result = await this.msalService.acquireTokenSilent(OAuthSettings.scopes)
       .catch((reason) => {
-        alert('Get token failed'+ JSON.stringify(reason, null, 2));
+        console.log('Get token failed'+ JSON.stringify(reason, null, 2));
       });
 
     return result;
