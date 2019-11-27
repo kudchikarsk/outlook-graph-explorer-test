@@ -32,11 +32,13 @@ export class GraphService {
     });
   }
 
-  async getEvents(): Promise<Event[]> {
+  async getEvents(startDate:string, endDate:string): Promise<Event[]> {    
+    console.log(startDate);
+    console.log(endDate);
     try {
       let result =  await this.graphClient
-        .api('/me/events')
-        .select('subject,organizer,start,end,attendees')
+        .api(`/me/events?startdatetime=${startDate}&enddatetime=${endDate}`)
+        .select('subject,organizer,start,end,attendees,location')
         .orderby('createdDateTime DESC')
         .get();
 

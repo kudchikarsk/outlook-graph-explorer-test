@@ -79,8 +79,6 @@ export class AuthService {
         alert('Get token failed'+ JSON.stringify(reason, null, 2));
       });
 
-    // Temporary to display token in an error box
-    if (result) alert('Token acquired'+ result);
     return result;
   }
 }

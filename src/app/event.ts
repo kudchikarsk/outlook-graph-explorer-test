@@ -6,6 +6,7 @@ export class Event {
     start: DateTimeTimeZone;
     end: DateTimeTimeZone;
     attendees: Attendee[];
+    location: Location
 }
 
 // https://docs.microsoft.com/graph/api/resources/recipient?view=graph-rest-1.0
@@ -35,3 +36,10 @@ export class Status {
     response: string    //"declined",
     time: string;       //"2019-11-26T05:38:19.9784194Z"
 }
+
+export class Location {
+    displayName:string;
+    uniqueId:string;
+}
+
+export const STATUS_DECLINED:string  = "declined";
